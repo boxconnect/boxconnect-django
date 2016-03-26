@@ -68,7 +68,7 @@
     <section id="portfolio">
         <div class="container">
         {% placeholder "social" %} 
-        <a href="{% url 'social:begin' 'google-oauth2' %}">Login</a>
+        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>        
         </div>
     </section>    
     <!-- jQuery -->

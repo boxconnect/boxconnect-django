@@ -1,3 +1,4 @@
+dj-database-url==0.4.0
 Django==1.9.4
 django-classy-tags==0.7.2
 django-cms==3.2.3

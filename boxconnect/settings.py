@@ -201,14 +201,15 @@ MIGRATION_MODULES = {
     
 }
 
+
+### python social auth modifications ###
+
 AUTHENTICATION_BACKENDS = (
     #'social.backends.facebook.FacebookOAuth2',
     'social.backends.google.GoogleOAuth2',
     #'social.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
-
-
 
 SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.social_details',
@@ -223,9 +224,16 @@ SOCIAL_AUTH_PIPELINE = (
     'youtube.pipeline.get_token',
 )
 
+### python social auth google api settings ###
+
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '331934324946-0g0rrnitav420d30gimpequieio2aa09.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8I6cJTQk50dU0x9PzsAM0jKo'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/youtube.upload']
 SOCIAL_AUTH_GOOGLE_PLUS_AUTH_EXTRA_ARGUMENTS = {
       'access_type': 'offline'
 }
+
+### database access for heroku ###
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()

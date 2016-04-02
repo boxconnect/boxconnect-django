@@ -1,4 +1,8 @@
 import os
+### database access for heroku ###
+import dj_database_url
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
 
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -223,7 +227,8 @@ SOCIAL_AUTH_GOOGLE_PLUS_AUTH_EXTRA_ARGUMENTS = {
       'access_type': 'offline'
 }
 
-### database access for heroku ###
-import dj_database_url
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
+### import local settings ###
+try:
+    from local_settings import *
+except ImportError:
+    pass

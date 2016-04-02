@@ -1,1 +1,3 @@
 *.pyc
+boxconnect/local_settings.py
+

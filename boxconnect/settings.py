@@ -225,4 +225,5 @@ SOCIAL_AUTH_GOOGLE_PLUS_AUTH_EXTRA_ARGUMENTS = {
 
 ### database access for heroku ###
 import dj_database_url
+DATABASES = {}
 DATABASES['default'] = dj_database_url.config()

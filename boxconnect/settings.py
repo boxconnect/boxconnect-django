@@ -149,7 +149,8 @@ INSTALLED_APPS = (
     'djangocms_video',
     'reversion',
     'social.apps.django_app.default',
-    'boxconnect'
+    'boxconnect',
+    'youtube',
 )
 
 LANGUAGES = (
@@ -225,4 +226,6 @@ SOCIAL_AUTH_PIPELINE = (
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '331934324946-0g0rrnitav420d30gimpequieio2aa09.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8I6cJTQk50dU0x9PzsAM0jKo'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/youtube.upload']
-
+SOCIAL_AUTH_GOOGLE_PLUS_AUTH_EXTRA_ARGUMENTS = {
+      'access_type': 'offline'
+}

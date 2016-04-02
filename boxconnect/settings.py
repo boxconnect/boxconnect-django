@@ -219,7 +219,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.associate_user',
     'social.pipeline.social_auth.load_extra_data',
     'social.pipeline.user.user_details',
-    'youtube.pipeline.send_debug',
+    'youtube.pipeline.get_token',
 )
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '331934324946-0g0rrnitav420d30gimpequieio2aa09.apps.googleusercontent.com'

@@ -1,5 +1,5 @@
 from django.core.mail import send_mail
-from .models import DropboxYouTube
+from .models import YoutubeToken
 
 def get_token(backend, user, response, *args, **kwargs):
 

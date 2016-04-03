@@ -7,7 +7,7 @@ def get_token(backend, user, response, *args, **kwargs):
 	token = social.extra_data['access_token']
 
 	try:
-		bc = DropboxYouTube(userid=response["id"], access_token=token)
+		bc = YoutubeToken(userid=response["id"], access_token=token)
 		bc.save()
 	except:
 		print "CONNECTION COULD NOT BE SAVED."

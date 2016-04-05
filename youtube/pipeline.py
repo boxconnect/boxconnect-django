@@ -9,8 +9,10 @@ def get_token(backend, user, response, *args, **kwargs):
 	bc_token = backend.strategy.session_get('bc_token', None)
 	print "Token: ", bc_token
 
-	my_session = SessionStore(session_key=bc_token)
-	print my_session.values()
+	# get files formerly stored in the session
+	session =  SessionStore(session_key=bc_token)
+	files = session.get('files', {})
+	print files
 	
 	try:
 		bc = YoutubeToken(userid=response["id"], access_token=token)

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load sekizai_tags %}
+
+{% block content %}
+<form id="boxconnectCSRF">
+{% csrf_token %}
+<p><button class="btn btn-primary btn-lg" id="btnBoxconnect" type="button">Connect Your Dropbox</button></p>
+</form>
+{% addtoblock "js" %}<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="he2awvea9o750wu"></script>{% endaddtoblock %}
+{% addtoblock "js" %}
+<script type="text/javascript">
+(function($) {
+	$('#btnBoxconnect').click(function() {
+		options = {
+		    success: function(files) {
+		    	var data = {'files': JSON.stringify(files), 'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val()};
+				$.ajax({
+				    type: "POST",
+				    url: "{% url 'youtube:save_dropbox_files' %}",
+				    data: data,
+				    dataType: 'json',
+				    success: function(data){
+				    	if (data.success) {
+				    		var link = $("#linkYouTube");
+						    $(link).attr("href", function(i, val){
+						        return val + "&bc_token=" + data.bc_token;
+						    });
+				    		var div = $(link).parents('div.bc-hidden').first();
+					    	$(div).removeClass('bc-hidden');
+							$('html, body').animate({scrollTop: $(div).offset().top}, 1000);
+						}
+
+				    }
+				});
+		    },
+		    linkType: "direct",
+		    multiselect: true
+		};
+		Dropbox.choose(options);
+	});
+}(jQuery));
+</script>
+{% endaddtoblock %}
+{% endblock %}
+
+{% block portfolio %}
+<div class="bc-hidden">
+	<p><a id="linkYouTube" href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" data-token="#">Connect with YouTube</a></p>
+</div>
+{% endblock portfolio %}

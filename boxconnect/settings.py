@@ -219,6 +219,7 @@ SOCIAL_AUTH_PIPELINE = (
 )
 
 ### python social auth google api settings ###
+SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['bc_token',]
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '331934324946-0g0rrnitav420d30gimpequieio2aa09.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8I6cJTQk50dU0x9PzsAM0jKo'

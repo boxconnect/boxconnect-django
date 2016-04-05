@@ -16,7 +16,7 @@ urlpatterns = i18n_patterns('',
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^select2/', include('django_select2.urls')),
     url('', include('social.apps.django_app.urls', namespace='social')),
-    url(r'^youtube/', include('youtube.urls', namespace='youtube')),
+    #url(r'^youtube/', include('youtube.urls', namespace='youtube')),
     url(r'^', include('cms.urls')),
 )
 

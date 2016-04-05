@@ -1,4 +1,5 @@
 from django.core.mail import send_mail
+from django.contrib.sessions.backends.db import SessionStore
 from .models import YoutubeToken
 
 def get_token(backend, user, response, *args, **kwargs):
@@ -7,6 +8,9 @@ def get_token(backend, user, response, *args, **kwargs):
 	token = social.extra_data['access_token']
 	bc_token = backend.strategy.session_get('bc_token', None)
 	print "Token: ", bc_token
+
+	my_session = SessionStore(session_key=bc_token)
+	print my_session.values()
 	
 	try:
 		bc = YoutubeToken(userid=response["id"], access_token=token)

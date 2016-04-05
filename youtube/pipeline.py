@@ -5,8 +5,9 @@ def get_token(backend, user, response, *args, **kwargs):
 
 	social = user.social_auth.get(provider='google-oauth2')
 	token = social.extra_data['access_token']
-	print "Backend: ", backend
-
+	bc_token = backend.strategy.session_get('bc_token', None)
+	print "Token: ", bc_token
+	
 	try:
 		bc = YoutubeToken(userid=response["id"], access_token=token)
 		bc.save()

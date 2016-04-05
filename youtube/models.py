@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 
-
 # the YoutubeToken
 class YoutubeToken(models.Model):
 	userid = models.TextField()
@@ -14,7 +13,7 @@ class YoutubeToken(models.Model):
 		return self.userid
 
 # the File class
-class DropboxFiles(models.Model):
+class DropboxFile(models.Model):
 	userid = models.ForeignKey(YoutubeToken, on_delete=models.CASCADE)
 	name = models.TextField()
 	link = models.TextField()

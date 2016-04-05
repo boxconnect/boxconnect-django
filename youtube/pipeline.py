@@ -8,7 +8,7 @@ def get_token(backend, user, response, *args, **kwargs):
 	print "Backend: ", backend
 
 	try:
-		bc = YoutubeToken(userid=response["id"], access_token=token)v
+		bc = YoutubeToken(userid=response["id"], access_token=token)
 		bc.save()
 	except:
 		print "CONNECTION COULD NOT BE SAVED."

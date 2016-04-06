@@ -50,7 +50,7 @@
                 <a class="navbar-brand" href="#page-top">boxConnect</a>
             </div>
             <div class="navbar-collapse collapse">
-            	<ul class="nav navbar-nav">
+            	<ul class="nav navbar-nav navbar-right">
                 	{% show_menu 0 1 100 100 "menu.html" %}
                 </ul>
             </div>
@@ -61,7 +61,7 @@
 
     <header>
         <div class="container">
-        {% block content %}{% endblock content %}
+        {% block header %}{% endblock header %}
         </div>
     </header>
 
@@ -69,7 +69,13 @@
         <div class="container text-center">
         {% block portfolio %}{% endblock portfolio %}
         </div>
-    </section>    
+    </section>
+
+    <section id="about">
+        <div class="container text-center">
+        {% block about %}{% endblock about %}
+        </div>
+    </section>
 
     <!-- jQuery -->
     <script src="{% static "js/jquery.js" %}"></script>

@@ -6,7 +6,8 @@ def get_token(backend, user, response, *args, **kwargs):
 
 	# get token from the oauth2 flow
 	social = user.social_auth.get(provider='google-oauth2')
-	token = social.extra_data['access_token']
+	access_token = social.extra_data['access_token']
+	refresh_token = social.extra_data.get('refresh_token')
 
 	# get our session token (from the dropbox files)
 	bc_token = backend.strategy.session_get('bc_token', None)
@@ -17,7 +18,7 @@ def get_token(backend, user, response, *args, **kwargs):
 		files = session.get('files', {})
 
 		try:
-			youtube_token = YoutubeToken(userid=response["id"], access_token=token)
+			youtube_token = YoutubeToken(userid=response["id"], access_token=access_token, refresh_token=refresh_token)
 			youtube_token.save()
 
 			for file in files:

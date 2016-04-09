@@ -7,6 +7,7 @@ from django.utils import timezone
 class YoutubeToken(models.Model):
 	userid = models.TextField()
 	access_token = models.TextField()
+	refresh_token = models.TextField(default='None')
 	created_date = models.DateTimeField('date created', default=timezone.now)
 
 	def __str__(self):

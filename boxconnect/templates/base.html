@@ -61,18 +61,21 @@
 
     <header>
         <div class="container">
+        {% placeholder header %}
         {% block header %}{% endblock header %}
         </div>
     </header>
 
     <section id="portfolio">
         <div class="container text-center">
+        {% placeholder portfolio %}
         {% block portfolio %}{% endblock portfolio %}
         </div>
     </section>
 
     <section id="about">
         <div class="container text-center">
+        {% placeholder bottom %}
         {% block about %}{% endblock about %}
         </div>
     </section>
